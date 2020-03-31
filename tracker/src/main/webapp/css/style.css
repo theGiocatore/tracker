@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+
+body{
+	font-family: 'Gotu', sans-serif;
+}
+			/* 	Main div in HOME PAGE Used '::after' to add background image with opacity */
+.main{
+	margin-top:5vh;
+	width:100%;
+	height:90vh;
+	position: relative;
+	display: block; 
+}
+.main::after {
+  	content: "";
+ 	background: url("../resource/pic.png");
+ 	background-position:top;
+ 	background-repeat:no-repeat;
+ 	background-attachment:local;
+  	opacity: 0.6;
+ 	top: 0;
+  	left: 0;
+  	bottom: 0;
+  	right: 0;
+  	position: absolute;
+  	z-index: -1;   
+}
+.navLinks > a{
+	font-weight: bolder;
+	font-size: 1.8em;
+	font-family: 'Gotu', sans-serif;
+}
+			/* 	Buttons for add,edit and remove (btnAdd, btnE ,btnD) */
+.btnAdd{
+	margin: 20px 0;
+	background-color: #98b7d6;
+	padding: 0.6em 1.5em;
+	border-radius: 10px;
+	color: black;
+	font-weight: bolder;
+}
+.btnAdd:hover{
+	background-color: #4880b7;
+}
+.btnE{
+	background-color: #f5af47;
+	padding: 0.5em;
+	border-radius: 50px;
+	color: white;
+}
+.btnE:hover{
+	background-color: #df7b0d;
+}
+.btnD{
+	background-color: #ff3737;
+	padding: 0.5em;
+	border-radius: 50px;
+	color: white;
+}
+.btnD:hover{
+	background-color: #be1d05;
+}
+
+			/* 	Main div in tracks,genres and skills pages. Used '::after' to add background image with opacity */	
+.tabMain{ 
+	padding-top:3em;
+	width:100%;
+	height:90vh;	
+	position: relative;
+	display: block; 
+}
+.tabMain::after {
+  	content: "";
+ 	background: url("../resource/picture2.jpg");
+  	opacity: 0.1;
+ 	top: 0;
+  	left: 0;
+  	bottom: 0;
+  	right: 0;
+  	position: absolute;
+  	z-index: -1;   
+}
+th, td{
+	display: inline-flex;
+	align-self: center;
+	justify-content: space-between;
+}
