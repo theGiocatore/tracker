@@ -85,4 +85,9 @@ th, td{
 	display: inline-flex;
 	align-self: center;
 	justify-content: space-between;
+	font-weight: bolder;
+}
+th {
+	font-weight: bold;
+	font-size: 1.3em;
 }

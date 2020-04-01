@@ -9,12 +9,10 @@
 </head>
 <body>
 	<jsp:include page="../navigation/navbar.jsp" />
-			
+
 	<div class="main">
-		<div>	
-		
-		</div>
+	
 	</div>
-		
+
 </body>
 </html>

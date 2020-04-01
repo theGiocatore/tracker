@@ -3,6 +3,9 @@ package com.tracker.service;
 import com.tracker.model.Genres;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public interface GenresService {
 
 	public List<Genres> listAll();
