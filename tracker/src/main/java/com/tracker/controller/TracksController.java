@@ -3,9 +3,11 @@ package com.tracker.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,12 +42,23 @@ public class TracksController {
 	}
 	
 
-
-	@RequestMapping("/edit-track")
-	public String edit(@RequestParam int id,Tracks tracks, HttpServletRequest request) {
-		request.setAttribute("track", trackService.update(id, tracks));
-		return "redirect:tracksList";
+	@RequestMapping("edit-track/{id}")
+	public Tracks edit(@PathVariable Integer id,@RequestParam Tracks tracks, HttpServletRequest request) {
+		Tracks track = trackService.update(id , tracks);
+		request.setAttribute("track", tracks );
+		return track;
 	}
 	
+	@RequestMapping ("tracksList/{id}")
+	public ResponseEntity<Tracks> get(@PathVariable Integer id) {
+		Tracks track = trackService.get(id);	
+			if (track==null) {
+				return ResponseEntity.notFound().build() ;
+		}
+			return ResponseEntity.ok().body(track);
 	}
 
+
+	
+	
+	}

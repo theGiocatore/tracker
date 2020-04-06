@@ -16,7 +16,7 @@ public class TracksServiceImpl implements TracksService {
 	public TracksDao tracksDao;
 	
 	
-	@Override
+
 	public List<Tracks> listAll() {
 		List<Tracks> tracks = new ArrayList <Tracks>();
 		for(Tracks track : tracksDao.findAll()) {
@@ -29,23 +29,22 @@ public class TracksServiceImpl implements TracksService {
 		return tracksDao.save(tracks);
 	}
 
-	@Override
+	
 	public Tracks update(int id, Tracks tracks) {
-		return tracksDao.getOne(id);
+		return tracksDao.saveAndFlush(tracks);
 	}
 
-	@Override
+
 	public void delete(int id) {
 		tracksDao.deleteById(id);
 		
 	}
 
-	@Override
-	public Tracks get(int id) {
+	
+	public Tracks get(Integer id) {
 		return tracksDao.getOne(id);
+			
+		
 	}
 
-
 }
-
-	

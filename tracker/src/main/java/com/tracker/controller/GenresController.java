@@ -2,9 +2,11 @@ package com.tracker.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,6 +44,16 @@ public class GenresController {
 	public String edit(@RequestParam int id,Genres genres, HttpServletRequest request) {
 		request.setAttribute("genres", genresService.update(id, genres));
 		return "redirect:genresList";
+	}
+	
+	
+	@RequestMapping ("genresList/{id}")
+	public ResponseEntity<Genres> get(@PathVariable Integer id) {
+		Genres genre = genresService.get(id);	
+			if (genre==null) {
+				return ResponseEntity.notFound().build() ;
+		}
+			return ResponseEntity.ok().body(genre);
 	}
 	
 	}

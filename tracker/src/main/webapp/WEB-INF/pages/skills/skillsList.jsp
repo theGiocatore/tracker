@@ -29,8 +29,16 @@
 						<c:forEach var="skill" items="${skills}">
 						<tr>						
 							<td class="col-lg-9 col-sm-7"> ${skill.name}</td>
-							<td class="col-lg-1 col-sm-2"><a href="/edit-skill?id=${skill.id}" ><button class="btnE" id="editBtn"><img src="../resource/edit.png" width="20" height="20"/></button></a></td>
-							<td class="col-lg-1 col-sm-2"><a href="/delete-skill?id=${skill.id}" ><button class="btnD"><img src="../resource/del.png" width="20" height="20"/></button></a></td>
+							<td class="col-lg-1 col-sm-2">
+								<button class="btnE" id="editBtn" value="${skill.id}">
+									<img src="../resource/edit.png" width="20" height="20"/>
+								</button>
+							</td>
+							<td class="col-lg-1 col-sm-2">
+								<button type="submit" class="btnD" value="${skill.id}" id="deleteBtn">
+									<img src="../resource/del.png" width="20" height="20"/>
+								</button><input type="hidden" id="id" value="${skill.id}">
+							</td>
 						</tr>
 					</c:forEach>
 					</tbody>
@@ -57,17 +65,17 @@
 						<div class="modal-body">
 							<div class="form-group" hidden="true">
 								<label for="id" hidden="true">Id</label> 
-								<input type="text" name="id" value="${skill.id}" hidden="true" class="form-control">
+								<input type="text" id="id" name="id"  hidden="true" class="form-control">
 							</div>
 							<div class="form-group">
 								<label for="name">Name</label> 
-								<input type="text" name="name" value="${skill.name}" class="form-control">
+								<input type="text" id="name" name="name"  class="form-control">
 							</div>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary">Save changes</button>
+							<button type="submit" id="id" name= "id" class="btn btn-primary">Save changes</button>
 						</div>
 					</form>
 				</div>
@@ -88,15 +96,15 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<form id="contactForm" name="contact" role="form">
+					<form id="contactForm"  action="delete-skill" method="POST" name="contact" role="form">
 						<div class="modal-body">
 							<p>Are you sure you want to delete the following skill?</p>
-							<h3>Name of skill</h3>
+							<h3> ${skill.name}</h3>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary">Delete</button>
+							<button type="submit" name="id" id="id" value="${skill.id}" class="btn btn-primary">Delete</button>
 						</div>
 					</form>
 				</div>
@@ -107,15 +115,44 @@
 
 
 	<script>
-		$('#addBtn, #editBtn').on('click', function(e) {
+
+	
+	
+		$('#addBtn, .btnE').on('click', function(e) {
 			$('#addOrEditModal').modal('show');
-			e.preventDefault();
+			$('#addOrEditModal').on('hidden.bs.modal', function () {
+			    $('#addOrEditModal form')[0].reset();
+			    });		
 		});
 
-		$('#deleteBtn').on('click', function(e) {
+		$('.btnD').on('click', function(e) {
 			$('#deleteModal').modal('show');
-			e.preventDefault();
+		
 		});
+		
+
+		$(document).ready(function(){
+
+			$('table .btnD').on('click', function(){
+				var id = $(this).parent().find('.btnD').val();
+				$('#deleteModal #id').val(id);
+			});
+
+			$('table .btnE').on('click', function(){
+			var id = $(this).parent().find('.btnE').val();
+			$.ajax({
+				type:'GET',
+				url:"skillsList/" + id,
+				success: function(skill){
+					$('#addOrEditModal #id').val(skill.id);
+					$('#addOrEditModal #name').val(skill.name);
+					}
+				});
+
+			});
+	
+		 });
+			
 	</script>
 	
 </body>

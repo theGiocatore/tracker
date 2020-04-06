@@ -2,18 +2,22 @@ package com.tracker.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.tracker.dao.GenresDao;
 import com.tracker.model.Genres;
 
 @Service
+@Transactional
 public class GenresServiceImpl implements GenresService {
 
 	@Autowired
 	public GenresDao genresDao;
 	
-	@Override
+	
 	public List<Genres> listAll() {
 		List<Genres> genres = new ArrayList <Genres>();
 		for(Genres genre : genresDao.findAll()) {
@@ -26,19 +30,19 @@ public class GenresServiceImpl implements GenresService {
 		return genresDao.save(genres);
 	}
 
-	@Override
+	
 	public Genres update(int id, Genres genres) {
 		return genresDao.getOne(id);
 	}
 
-	@Override
+	
 	public void delete(int id) {
 		genresDao.deleteById(id);
 		
 	}
 
-	@Override
-	public Genres get(int id) {
+	
+	public Genres get(Integer id) {
 		return genresDao.getOne(id);
 	}
 

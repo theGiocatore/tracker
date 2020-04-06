@@ -16,5 +16,5 @@ public interface SkillsService {
 
 	public void delete(int id);
 
-	public Skills get(int id);
+	public Skills get(Integer id);
 }

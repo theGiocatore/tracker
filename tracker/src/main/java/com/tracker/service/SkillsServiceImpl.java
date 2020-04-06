@@ -38,7 +38,7 @@ public class SkillsServiceImpl implements SkillsService {
 	}
 
 	@Override
-	public Skills get(int id) {
+	public Skills get(Integer id) {
 		return skillsDao.getOne(id);
 	}
 
