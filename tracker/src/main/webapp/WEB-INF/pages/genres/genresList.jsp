@@ -36,12 +36,12 @@
 							<td class="col-lg-4 col-sm-3"> ${gen.subgenre_name}</td>
 							<td class="col-lg-1 col-sm-2">
 								<button class="btnE" id="editBtn" value="${gen.id}">
-									<img src="../resource/edit.png" width="20" height="20"/>
+									<img src="../tracker/resource/edit.png" width="20" height="20"/>
 								</button>
 							</td>
 							<td class="col-lg-1 col-sm-2">
 								<button type="submit" class="btnD" value="${gen.id}">
-									<img src="../resource/del.png" width="20" height="20"/>
+									<img src="../tracker/resource/del.png" width="20" height="20"/>
 								</button><input type="hidden" id="id" value="${gen.id}">
 							</td>
 						</tr>

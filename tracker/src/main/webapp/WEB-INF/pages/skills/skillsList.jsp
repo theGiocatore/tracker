@@ -31,12 +31,12 @@
 							<td class="col-lg-9 col-sm-7"> ${skill.name}</td>
 							<td class="col-lg-1 col-sm-2">
 								<button class="btnE" id="editBtn" value="${skill.id}">
-									<img src="../resource/edit.png" width="20" height="20"/>
+									<img src="../tracker/resource/edit.png" width="20" height="20"/>
 								</button>
 							</td>
 							<td class="col-lg-1 col-sm-2">
 								<button type="submit" class="btnD" value="${skill.id}" id="deleteBtn">
-									<img src="../resource/del.png" width="20" height="20"/>
+									<img src="../tracker/resource/del.png" width="20" height="20"/>
 								</button><input type="hidden" id="id" value="${skill.id}">
 							</td>
 						</tr>

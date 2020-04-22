@@ -13,4 +13,19 @@ public class HomeController {
 		
 		return "home/home";
 	}
+	
+	@RequestMapping("/login")
+	public String login() {
+		return "login/login";
+	}
+	
+	@RequestMapping("/logout-success")
+	public String logout() {
+		return "login/logout";
+	}
+	
+	@RequestMapping("/register")
+	public String register() {
+		return "login/register";
+	}
 }

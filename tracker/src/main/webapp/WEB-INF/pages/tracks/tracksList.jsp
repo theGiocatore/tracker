@@ -38,12 +38,12 @@
 						<td class="col-lg-2 col-sm-2">${track.duration}</td>
 						<td class="col-lg-1 col-sm-2">
 							<button class="btnE editBtn" value="${track.id}">
-								<img src="../resource/edit.png" width="20" height="20" />
+								<img src="../tracker/resource/edit.png" width="20" height="20" />
 							</button>					
 						</td>
 						<td class="col-lg-1 col-sm-2">
 							<button type="submit" class="btnD" value="${track.id}">
-								<img src="../resource/del.png" width="20" height="20" />
+								<img src="../tracker/resource/del.png" width="20" height="20" />
 							</button> <input type="hidden" id="id" value="${track.id}">
 						</td>
 					</tr>

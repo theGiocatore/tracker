@@ -1,6 +1,3 @@
-@charset "UTF-8";
-
-
 body{
 	font-family: 'Gotu', sans-serif;
 }
@@ -90,4 +87,37 @@ th, td{
 th {
 	font-weight: bold;
 	font-size: 1.3em;
+}
+.loginDiv {
+	width: 30%;
+	height: 50vh;
+	margin: 10% 30%;
+}
+.logoutTxt{
+	width:100%;
+	display: flex;
+	justify-content: center;
+	align-content:center;
+	color: black;
+}
+.logoutDiv {
+	width: 50%;
+	height: 50vh;
+	margin: 10% 25%;
+}
+.imgDiv{
+	width: 100%;
+	display:flex;
+	justify-content:center;
+	align-content: center;
+}
+.regLink{
+	display: flex;
+	justify-content: center;
+	color: black;
+}
+.regDiv{
+	width: 30%;
+	height: 50vh;
+	margin: 5% 35%;
 }
