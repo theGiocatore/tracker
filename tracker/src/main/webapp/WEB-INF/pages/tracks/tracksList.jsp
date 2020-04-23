@@ -60,13 +60,13 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">Genre</h5>
+					<h5 class="modal-title">Track</h5>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form id="contactForm" method="POST" action="save-track">
+				<form id="contactForm" method="POST" action="save-track" data-parsley-validate="">
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="id" hidden="true">Id</label> 
@@ -74,15 +74,15 @@
 						</div>
 						<div class="form-group">
 							<label for="name">Name</label> 
-							<input type="text" id="track_name" name="track_name" class="form-control">
+							<input type="text" id="track_name" name="track_name" class="form-control" data-parsley-length="[6, 45]"  required="required">
 						</div>
 						<div class="form-group">
 							<label for="format">Format</label> 
-							<input type="text" id="file_format" name="file_format" class="form-control">
+							<input type="text" id="file_format" name="file_format" class="form-control" data-parsley-length="[2, 7]"  required="required">
 						</div>
 						<div class="form-group">
 							<label for="duration">Duration</label> 
-							<input type="text" id="duration" name="duration" class="form-control">
+							<input type="text" id="duration" name="duration" class="form-control" data-parsley-length="[2, 7]"  required="required">
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -161,6 +161,7 @@
 				
 		})
 	 });
+	
 
 	 
 	</script>

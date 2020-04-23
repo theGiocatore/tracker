@@ -65,7 +65,7 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<form id="contactForm" method="POST" action="save-genre" role="form">
+					<form id="contactForm" method="POST" action="save-genre" role="form" data-parsley-validate="" >
 						<div class="modal-body">
 							<div class="form-group" hidden="true">
 								<label for="id" hidden="true">Id</label> 
@@ -73,7 +73,7 @@
 							</div>
 							<div class="form-group">
 								<label for="name">Name</label> 
-								<input type="text" id="name" name="name" class="form-control">
+								<input type="text" id="name" name="name" class="form-control" data-parsley-length="[3, 20]" required>
 							</div>
 							<div class="form-group">
 								<label for="subgenre_name">Subgenre</label> 

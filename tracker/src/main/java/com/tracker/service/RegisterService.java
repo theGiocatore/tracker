@@ -8,5 +8,9 @@ public interface RegisterService {
 
 	public Users save(Users user);
 	
+	Users findByUsername(String username);
 	
+	String findLoggedInUsername();
+	
+	void autoLogin(String username, String password);
 }

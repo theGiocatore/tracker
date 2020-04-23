@@ -11,6 +11,8 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>	
 	<link href="https://fonts.googleapis.com/css?family=Gotu&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../../tracker/css/style.css">	
+	<script src="../../tracker/js/parsley.min.js"></script>	
+	<link rel="stylesheet"  href="../../tracker/css/parsley.css">
 
 
 </head>
