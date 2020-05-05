@@ -121,3 +121,20 @@ th {
 	height: 50vh;
 	margin: 5% 35%;
 }
+#alert1{
+	display: none;
+}
+.subBtn{
+	padding: 1rem 4rem; 
+	color: white; 
+	background-color: black;
+}
+.forPass{
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-content: flex-end;
+}
+.smallTxt{
+	color: black;
+}

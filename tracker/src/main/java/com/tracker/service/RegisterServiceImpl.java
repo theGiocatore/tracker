@@ -32,11 +32,21 @@ public class RegisterServiceImpl implements RegisterService {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return userDao.save(user);
 	}
-
+	
 
 	@Override
 	public Users findByUsername(String username) {
 		return userDao.findByUsername(username);
+	}
+	
+	@Override
+	public Users findByEmail(String email) {
+		return userDao.findByEmail(email);
+	}
+	
+	@Override
+	public Users findByPassword(String password) {
+		return userDao.findByPassword(password);
 	}
 
 
@@ -61,6 +71,13 @@ public class RegisterServiceImpl implements RegisterService {
 			SecurityContextHolder.getContext().setAuthentication(usernamePassAuthToken);
 			logger.debug(String.format("Auto login %s successfully!", username));
 		}
+	}
+
+
+
+	@Override
+	public Users get(Integer id) {
+		return userDao.getOne(id);
 	}
 	
 	}

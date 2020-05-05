@@ -22,11 +22,12 @@
 				<div class="form-group">
 					<label for="password">Password:</label> 
 					<input type="password" id="password" name="password" class="form-control">
+					<small class="forPass"><a href="resetpass"><em class="nav-link smallTxt">Forgot your password?</em></a></small>
 				</div>
 			</div>
-			<small><a class="nav-link" href="register" style="color: black">Create a new account!</a></small>
+			<p><a class="smallTxt nav-link" href="register">Create a new account!</a></p>
 			<div class="form-actions modal-footer">
-				<button style="padding: 1rem 4rem; color: white; background-color: black;" type="submit" id="id" name="id">Log in</button>
+				<button class="subBtn" type="submit" id="id" name="id">Log in</button>
 			</div>
 		</form>
 	</div>

@@ -8,4 +8,8 @@ import com.tracker.model.Users;
 public interface UserDao extends JpaRepository<Users, Integer> {
 
 	Users findByUsername(String username);
+	
+	Users findByEmail(String email);
+	
+	Users findByPassword(String password);
 }

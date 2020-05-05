@@ -12,17 +12,21 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>	
 	<script src="../../tracker/js/parsley.min.js"></script>	
 	<link rel="stylesheet"  href="../../tracker/css/parsley.css">
-	<title>Create a new account</title>
+	<title>Reset password</title>
 </head>
 <body>
 	<div class="regDiv">
-		<h2>Create a new account</h2>
+		<h2>Update your password!</h2>
 		<hr>
 		<form data-parsley-validate="" class="contactForm" id="contactForm" method="POST" action="save-user" role="form">
 			<div class="modal-body">
 				<div class="form-group">
-					<label for="username">Userame:</label> 
-					<input type="text" id="username" name="username" class="form-control" data-parsley-length="[6, 20]" required>
+					<label hidden="true" for="id">id:</label> 
+					<input hidden="true" type="number" id="id" name="id" class="form-control">
+				</div>
+				<div class="form-group">
+					<label hidden="true" for="username">Username:</label> 
+					<input hidden="true" type="text" id="username" name="username" class="form-control">
 				</div>
 				<div class="form-group">
 					<label for="password">Password:</label> 
@@ -34,25 +38,24 @@
 					<small class="text-danger" id="alert1">Password doesn't match!</small>
 				</div>
 				<div class="form-group">
-					<label for="firstname">First name:</label> 
-					<input type="text" id="firstname" name="firstname" class="form-control" data-parsley-length="[2, 35]" required >
+					<label hidden="true" for="firstname">First name:</label> 
+					<input hidden="true" type="text" id="firstname" name="firstname" class="form-control" >
 				</div>
 				<div class="form-group">
-					<label for="lastname">Last name:</label> 
-					<input type="text" id="lastname" name="lastname" class="form-control" data-parsley-length="[2, 35]" required>
+					<label hidden="true" for="lastname">Last name:</label> 
+					<input hidden="true" type="text" id="lastname" name="lastname" class="form-control" >
 				</div>
 				<div class="form-group">
-					<label for="dateofbirth">Date of birth:</label> 
-					<input type="date" id="dateofbirth" name="dateofbirth" class="form-control" required>
+					<label hidden="true" for="dateofbirth">Date of birth:</label> 
+					<input hidden="true" type="date" id="dateofbirth" name="dateofbirth" class="form-control" >
 				</div>
 				<div class="form-group">
-					<label for="email">E-mail:</label> 
-					<input type="email" id="email" name="email" class="form-control" required>
+					<label hidden="true" for="email">E-mail:</label> 
+					<input hidden="true" type="email" id="email" name="email" class="form-control" >
 				</div>
 			</div>
 			<div class="form-actions modal-footer">
-				<small><a class="regLink nav-link" href="login">You already have an account? Log in here!</a></small>
-				<button class="subBtn" id="submitBtn"  type="submit" >Register</button>
+				<button class="submitBtn" id="submitBtn"  type="submit" >Save new password</button>
 			</div>
 		</form>
 		
@@ -81,7 +84,27 @@
 			    	bttn.prop('disabled', false);
 			    }
 			});
-	
+
+		$(document).ready(function(){
+			var url = window.location.href;
+			var id = url.substring(url.lastIndexOf('/') + 1);
+			console.log(id);
+				$.ajax({
+					type:'GET',
+					url:"users/" + id,
+					success: function(us){
+						$('#id').val(us.id);
+						$('#username').val(us.username);
+						$('#password').val(us.password);
+						$('#firstname').val(us.firstname);
+						$('#lastname').val(us.lastname);
+						$('#dateofbirth').val(us.dateofbirth);
+						$('#email').val(us.email);
+						}
+					});
+		 });
+
+
 		
 	</script>
 

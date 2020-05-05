@@ -11,8 +11,8 @@
 	<jsp:include page="../navigation/navbar.jsp" />
 
 	<div class="main">
+
 	
 	</div>
-
 </body>
 </html>
